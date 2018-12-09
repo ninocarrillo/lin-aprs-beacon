@@ -22,7 +22,7 @@ case "$1" in
 		sudo killall aprs-beacon
 		;;
 	*)
-		echo "Usage: /etc/init.d/aprs-beacon {start|stop}"
+		echo "Usage: /etc/init.d/do-aprs-beacon {start|stop}"
 		exit 1
 		;;
 	esac
