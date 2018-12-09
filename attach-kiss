@@ -1,0 +1,3 @@
+#!/bin/bash
+KISSDEV="$(find-ttyusb KISS)"
+kissattach ${KISSDEV} radio_a

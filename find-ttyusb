@@ -1,0 +1,5 @@
+#!/bin/bash
+USBID="$(dmesg | grep "$1" | sed -e 's/.*usb\(.*\): Product.*/\1/')"
+TTYUSBID="$(dmesg | grep ${USBID} | sed -n -e 's/^.*ttyUSB//p')"
+TTYUSBID="/dev/ttyUSB$TTYUSBID"
+echo $TTYUSBID

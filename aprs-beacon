@@ -1,0 +1,31 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:		aprs-beacon
+# Required-Start: 	$local_fs $network $gpsd $ninoradio
+# Required-Stop:	$local_fs
+# Default-Start:	2 3 4 5
+# Default-Stop:		0 1 6
+# Short-Description:	start APRS beacon
+# Description: 		starts APRS beacon on ax0 at specified interval
+### END INIT INFO
+
+# Author: Nino Carrillo <nino.carrillo@outlook.com>
+
+case "$1" in
+	start)
+		echo "Starting APRS beacon"
+		sudo /usr/local/bin/aprs-beacon 5 &
+		;;
+	stop)
+		echo "Stopping APRS beacon"
+		sudo killall aprs-beacon
+		;;
+	*)
+		echo "Usage: /etc/init.d/aprs-beacon {start|stop}"
+		exit 1
+		;;
+	esac
+
+exit 0
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+while [ 1 ]; do
+	STR="$(gpspipe -r -n 10 | grep GPGGA)"
+	LOC="$(get-comp-loc)"
+	ALT="$(get-comp-alt)"
+#	beacon -d APRS -s radio_a "${STR}"
+	beacon -d APRS -s radio_a "!/${LOC}/${ALT}Q"
+	sleep $1
+done
